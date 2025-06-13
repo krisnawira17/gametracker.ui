@@ -1,1 +1,9 @@
 @use "./base/reset";
+
+//Pages
+@use "./pages/login";
+@use "./pages/register";
+
+//Component
+@use "./components/input.scss";
+@use "./components/btn.scss";

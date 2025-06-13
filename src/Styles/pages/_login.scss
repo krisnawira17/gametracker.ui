@@ -1,0 +1,53 @@
+.login-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  gap: 2rem;
+  background-color: #f5f5f5;
+  color: #121212;
+  border-radius: 8px;
+  padding: 4rem;
+
+  &__title {
+    font-family: "Orbitron", sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__authConfirm {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__cta-label {
+    font-size: 16px;
+    margin-top: 8px;
+  }
+
+  &__register-cta {
+    color: var(--accent-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: var(--accent-hover-color);
+    }
+  }
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
