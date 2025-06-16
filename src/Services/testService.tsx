@@ -1,5 +1,5 @@
 export default function test() {
-  return fetch("http://localhost:3001/")
+  return fetch("http://localhost:3001")
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network error");

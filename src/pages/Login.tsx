@@ -2,6 +2,8 @@ import { useState } from "react";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import { useNavigate } from "react-router-dom";
+// import { login } from "../Services/authServices";
+import { useLogin } from "../hook/useAuth";
 
 type loginForm = {
   email: string;
@@ -9,6 +11,7 @@ type loginForm = {
 };
 
 function Login() {
+  const { login } = useLogin();
   const [form, setForm] = useState<loginForm>({
     email: "",
     password: "",
@@ -24,7 +27,10 @@ function Login() {
     }));
   }
 
-  function handleSubmit() {}
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    login(form.email, form.password);
+  }
 
   return (
     <div className="login-container">

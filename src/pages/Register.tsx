@@ -2,6 +2,7 @@ import { useState } from "react";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
+import { useRegister } from "../hook/useAuth";
 
 type registerForm = {
   email: string;
@@ -11,6 +12,7 @@ type registerForm = {
 };
 
 function Register() {
+  const { register } = useRegister();
   const [form, setForm] = useState<registerForm>({
     email: "",
     username: "",
@@ -27,9 +29,26 @@ function Register() {
       [name]: value,
     }));
   }
+
+  function handleOnSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (form.password !== form.password_confirm) {
+      alert("Password do not match");
+      return;
+    }
+
+    const { email, username, password } = form;
+
+    try {
+      register(email, username, password);
+    } catch (err) {
+      console.error("Failed to register", err);
+    }
+  }
+
   return (
     <div className="register-container">
-      <form className="register-page">
+      <form onSubmit={handleOnSubmit} className="register-page">
         <h1 className="register-page__title">Create an account</h1>
         <div className="register-page__fields">
           <Input
