@@ -1,9 +1,13 @@
+//Base
 @use "./base/reset";
+@use "./base/layout";
 
 //Pages
 @use "./pages/login";
 @use "./pages/register";
+@use "./pages/search";
 
 //Component
-@use "./components/input.scss";
-@use "./components/btn.scss";
+@use "./components/input";
+@use "./components/btn";
+@use "./components/navbar";

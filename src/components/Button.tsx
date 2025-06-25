@@ -1,3 +1,5 @@
+import clsx from "clsx";
+
 interface ButtonProps {
   name: string;
   className?: string;
@@ -15,7 +17,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button
-      className={`btn ${className}`}
+      className={clsx("btn", className)}
       type={type}
       disabled={disabled}
       onClick={onClick}

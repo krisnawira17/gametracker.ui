@@ -1,3 +1,5 @@
+import clsx from "clsx";
+
 interface InputProps {
   label?: string;
   name: string;
@@ -24,7 +26,7 @@ const Input: React.FC<InputProps> = ({
   return (
     <div className={`input-wrapper ${wrapperClassName}`}>
       {label && (
-        <label className="input-label" htmlFor={name}>
+        <label className="input-wrapper__label" htmlFor={name}>
           {label}
         </label>
       )}
@@ -36,7 +38,7 @@ const Input: React.FC<InputProps> = ({
         placeholder={placeholder}
         onChange={onChange}
         required={required}
-        className={`input-field ${className}`}
+        className={clsx("input-wrapper__field", className)}
       />
     </div>
   );

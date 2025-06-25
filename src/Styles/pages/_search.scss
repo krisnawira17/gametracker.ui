@@ -1,0 +1,30 @@
+.searchPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__header {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+
+  &__searchFunc {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+    &__bar {
+      &.input-wrapper__field {
+        width: 40rem;
+      }
+    }
+
+    &__submit {
+      &.btn {
+        width: 6rem;
+      }
+    }
+  }
+}

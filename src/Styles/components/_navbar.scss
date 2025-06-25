@@ -1,0 +1,60 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  font-family: "Orbitron", sans-serif;
+
+  &__title {
+    position: absolute;
+    left: 0;
+  }
+
+  &__list {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    flex-direction: row;
+    list-style-type: none;
+    transform: translateX(-50%);
+    gap: 4rem;
+    font-weight: 600;
+
+    li {
+      cursor: pointer;
+      a {
+        text-decoration: none;
+        color: inherit;
+        &:visited {
+          color: inherit;
+        }
+      }
+    }
+
+    &__home {
+      transition: color 0.3s;
+      &:hover {
+        color: var(--accent-color);
+      }
+    }
+
+    &__search {
+      transition: color 0.3s;
+      &:hover {
+        color: var(--accent-color);
+      }
+    }
+
+    &__my-games {
+      transition: color 0.3s;
+      &:hover {
+        color: var(--accent-color);
+      }
+    }
+  }
+
+  &__profile {
+    position: absolute;
+    right: 0;
+  }
+}
