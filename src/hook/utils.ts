@@ -1,6 +1,13 @@
-export const isAuth = () => {
+export const getToken = () => {
   const token = localStorage.getItem("token");
-  return { isAuthenticated: !!token };
+  return { isAuthenticated: !!token, value: token };
+};
+
+export const removeToken = () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+
+  window.location.reload();
 };
 
 export const getUsername = () => {

@@ -56,5 +56,43 @@
   &__profile {
     position: absolute;
     right: 0;
+    cursor: pointer;
+  }
+}
+
+.modal-profile {
+  position: absolute;
+
+  top: 3rem;
+  right: 1.9rem;
+  border: 1px solid var(--text-color);
+  border-radius: 4px;
+  padding: 1rem;
+  background-color: var(--text-color);
+  z-index: 1000;
+
+  &__list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    color: var(--bg-color);
+
+    &__profile {
+      cursor: pointer;
+      transition: color 0.3s;
+
+      &:hover {
+        color: var(--accent-hover-color);
+      }
+    }
+    &__logOut {
+      cursor: pointer;
+      transition: color 0.3s;
+
+      &:hover {
+        color: var(--accent-hover-color);
+      }
+    }
   }
 }

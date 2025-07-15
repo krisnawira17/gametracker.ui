@@ -30,7 +30,7 @@ function Register() {
     }));
   }
 
-  function handleOnSubmit(e: React.FormEvent) {
+  async function handleOnSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (form.password !== form.password_confirm) {
       alert("Password do not match");
@@ -40,7 +40,7 @@ function Register() {
     const { email, username, password } = form;
 
     try {
-      register(email, username, password);
+      await register(email, username, password);
     } catch (err) {
       console.error("Failed to register", err);
     }

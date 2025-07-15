@@ -1,0 +1,39 @@
+.home {
+  max-width: 1800px;
+  margin: 12rem auto 0;
+  display: flex;
+  flex-direction: column;
+  margin-top: 12rem;
+
+  &__landing {
+    display: flex;
+    flex-direction: row;
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      width: 50%;
+
+      &__header {
+        font-weight: 600;
+        font-size: 3rem;
+      }
+
+      &__desc {
+        font-weight: 400;
+        font-size: 1.125rem;
+      }
+    }
+
+    &__img {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 24rem;
+      }
+    }
+  }
+}

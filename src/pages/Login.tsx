@@ -27,9 +27,14 @@ function Login() {
     }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    login(form.email, form.password);
+    try {
+      await login(form.email, form.password);
+      navigate("/");
+    } catch (err) {
+      console.error("login failed: ", err);
+    }
   }
 
   return (

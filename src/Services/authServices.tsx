@@ -6,7 +6,6 @@ export const login = async (credential: {
 }) => {
   const res = await axios.post("/api/user/login", credential);
 
-  console.log(res.data);
   const { token, user } = res.data;
 
   localStorage.setItem("token", token);
