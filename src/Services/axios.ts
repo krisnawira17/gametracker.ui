@@ -13,7 +13,7 @@ instance.interceptors.request.use((config) => {
 
   if (
     token &&
-    config.url !== "/api/user/logi" &&
+    config.url !== "/api/user/login" &&
     config.url !== "/api/user/register"
   ) {
     config.headers.Authorization = `Bearer ${token}`;
