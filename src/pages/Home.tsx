@@ -22,7 +22,7 @@ const Home = () => {
           />
         </div>
         <div className="home__landing__img">
-          <img src="../public/assets/controller.png" />
+          <img src="../assets/controller.png" />
         </div>
       </div>
     </div>

@@ -14,8 +14,8 @@ function isTokenExpired(token: string) {
 
 export function useTokenChecker() {
   useEffect(() => {
-    const token = getToken().value;
     const interval = setInterval(() => {
+      const token = getToken().value;
       if (token && isTokenExpired(token)) {
         removeToken();
         window.location.reload();
