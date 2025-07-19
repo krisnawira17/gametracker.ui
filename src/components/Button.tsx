@@ -3,7 +3,7 @@ import clsx from "clsx";
 interface ButtonProps {
   name: string;
   className?: string;
-  type: "button" | "submit" | "reset";
+  type: "button" | "submit";
   onClick?: () => void;
   disabled?: boolean;
 }

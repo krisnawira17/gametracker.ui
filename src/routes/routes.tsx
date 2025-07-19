@@ -3,6 +3,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Home from "../pages/Home";
 import Search from "../pages/Search";
+import Game from "../pages/Game";
 
 interface RouteConfig {
   path: string;
@@ -20,6 +21,11 @@ export const routesProtected: RouteConfig[] = [
     path: "/search",
     element: <Search />,
     name: "search",
+  },
+  {
+    path: "/game/:id",
+    element: <Game />,
+    name: "game",
   },
 ];
 

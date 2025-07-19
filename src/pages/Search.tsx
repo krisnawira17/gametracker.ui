@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import { useGames } from "../hook/useGames";
+import { useNavigate } from "react-router-dom";
 
 type searchForm = {
   title: string;
@@ -10,6 +11,8 @@ type searchForm = {
 };
 
 const Search = () => {
+  const navigate = useNavigate();
+
   const [search, setSearch] = useState<searchForm>({
     title: "",
     page: 1,
@@ -33,12 +36,6 @@ const Search = () => {
     }
   };
 
-  useEffect(() => {
-    console.log(games);
-    console.log(prev);
-    console.log(next);
-  }, [games, next, prev]);
-
   const handleNext = () => {
     if (next) {
       const nextPage = Number(new URL(next).searchParams.get("page"));
@@ -46,20 +43,24 @@ const Search = () => {
         ...prev,
         page: nextPage,
       }));
-      getGames(search);
     }
   };
 
   const handlePrevious = () => {
     if (prev) {
       const prevPage = Number(new URL(prev).searchParams.get("page"));
+
       setSearch((prev) => ({
         ...prev,
-        page: prevPage,
+        page: prevPage < 1 ? 1 : prevPage,
       }));
-      getGames(search);
     }
   };
+
+  useEffect(() => {
+    getGames(search);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [search.page]);
 
   return (
     <div className="searchPage">
@@ -82,7 +83,11 @@ const Search = () => {
       </form>
       <div className="searchPage__gameList">
         {games.map((game) => (
-          <div key={game.id} className="searchPage__gameList__gameCard">
+          <div
+            key={game.id}
+            className="searchPage__gameList__gameCard"
+            onClick={() => navigate(`/game/${game.id}`)}
+          >
             <img
               src={game.background_image}
               alt={game.name}
@@ -96,10 +101,23 @@ const Search = () => {
           </div>
         ))}
       </div>
-      <div>
-        <Button name="previous" type={"button"} onClick={handleNext} />
-        <Button name="next" type={"button"} onClick={handlePrevious} />
-      </div>
+      {games.length > 0 && (
+        <div className="searchPage__pagination">
+          <Button
+            name="previous"
+            type={"button"}
+            onClick={handlePrevious}
+            className="searchPage__pagination__button"
+          />
+          <p>{search.page}</p>
+          <Button
+            name="next"
+            type={"button"}
+            onClick={handleNext}
+            className="searchPage__pagination__button"
+          />
+        </div>
+      )}
     </div>
   );
 };
